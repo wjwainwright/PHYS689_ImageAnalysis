@@ -60,6 +60,10 @@ def processDates(dates,src='data/img/',dest='data/subtracted/'):
     import numpy as np
     
     for date in dates:
+        if not os.path.exists(f'{src}{date}'):
+            print(f"{date} DNE, skipping...")
+            continue
+        print(f"Stacking {date}")
         images = loadImg(date,src)
         
         if not os.path.exists(f'{dest}{date}/'):
